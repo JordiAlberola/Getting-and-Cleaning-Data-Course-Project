@@ -1,5 +1,40 @@
-The script run_analysis.R performs the 5 steps described in the course project's definition.
-Data is downloaded and unzipped in folder "./data". Then, read to data frames Activity_Train_data, Activity_Test_data… 
-Train and test data are concatenated (merged vertically) using rbind in data frames named Activity_ data, Subject_data, and Features_data.
-All data are joined (merged horizontally) using cbind in data frame named Data.
-Data frame Data is the data frame used in ulterior tidying. See commentaries included in script run_analysis.R for further information.
+The script run_analysis.R performs the 5 steps described in the course project's assignment.
+
+Data is downloaded and unzipped in folder "./data". Then read to the following data frames:
+•	“Activity_Train_data”
+•	“Activity_Test_data”
+•	“Subject_Train_data”
+•	“Subject_Test_data”
+•	“Features_Train_data”
+•	“Features_Test_data”
+
+Train and test data for Activity, Subject and Features data are concatenated (merged vertically) and their variables named in the following data frames:
+•	“Activity_ data”
+•	“Subject_data”
+•	“Features_data”
+
+“Subject_data”, “Activity_data” and “Features_data” data frames are joined (merged horizontally) in data frame “Data”.
+
+The measurements on the mean and standard deviation for each measurement are extracted to the data frame “Mean_STD_data”.
+
+Descriptive activity names from file "activity_labels.txt" are read to data frame “activityLabels”.
+ 
+Data frame “Data” is updated with activity names from data frame “activityLabels”.
+
+Variables in data frame “Data” are labeled with the following more descriptive names: 
+•	"Acc" labeled “Accelerometer"
+•	"Gyro" labeled “Gyroscope"
+•	"BodyBody" labeled “Body"
+•	"Mag" labeled “Magnitude"
+•	"^t" labeled “Time"
+•	"^f" labeled “Frequency"
+•	"tBody" labeled “TimeBody"
+•	"-mean()" labeled  "Mean"
+•	"-std()" labeled  "STD"
+•	"-freq()" labeled  "Frequency"
+•	"angle" labeled “Angle"
+•	"gravity" labeled “Gravity"
+
+Finally, an independent tidy data set with the average of each variable for each activity and each subject is created in data frame “Data_2nd".
+
+See commentaries included in script run_analysis.R for further information.
