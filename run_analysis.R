@@ -72,6 +72,7 @@ str(Features_data)
 Data <- cbind(Subject_data, Activity_data, Features_data)
 str(Data)
 dim(Data)
+View(Data)
 
 ## 2. Extracts only the measurements on the mean and standard deviation for each measurement. ####
 
@@ -84,15 +85,17 @@ Columns <- c(Mean_and_STD_cols, 562, 563)
 Mean_STD_data <- Data[,Columns]
 str(Mean_STD_data)
 dim(Mean_STD_data)
+View(Mean_STD_data)
 
 
-## CORREGIR 3. Uses descriptive activity names to name the activities in the data set ####
+## Uses descriptive activity names to name the activities in the data set ####
 
 # Reading descriptive activity names from "activity_labels.txt"
 activityLabels <- read.table(file.path(path, "activity_labels.txt"),header = FALSE)
 
 # update values with correct activity names
 Data[, 2] <- activityLabels[Data[, 2], 2]
+View(Data)
 
 
 ## 4. Appropriately labels the data set with descriptive variable names.####
@@ -116,6 +119,7 @@ names(Data)<-gsub("gravity", "Gravity", names(Data))
 
 # List of new descriptive names
 names(Data)
+View(Data)
 
 
 ## 5. From the data set in step 4, creates a second, independent tidy data set with the ####
@@ -124,6 +128,7 @@ names(Data)
 library(plyr);
 Data_2nd <- aggregate (. ~subject + activity, Data, mean)
 Data_2nd <- Data_2nd[order(Data_2nd$subject,Data_2nd$activity), ]
+View(Data_2nd)
 write.table(Data_2nd, file = "tidydata.txt", row.name = FALSE)
 
 
